@@ -16,18 +16,40 @@ createApp({
   
   data() {
     return{
-      // 2. Creo un array vuoto dove pushare l' email generate in maniera random.
+      // 2. Creo un array vuoto dove pushare l' email generate in maniera random
       listEmail: [],
-      newEmail: ''
+      newEmail: '',
+      randomEmail: 'https://flynn.boolean.careers/exercises/api/random/mail'
   }
   },
 
   methods: {
 
+    // 3. Creo una funzione per generare email random
+    generateRandomEmail() {
+
+      for (i = 0; i < 10; i++) {
+        axios.get(this.randomEmail)
+          .then((email) => {
+            // genero email random
+            this.newEmail = email.data.response;
+
+            // 4. Pusho l'email generate nell'array vuoto.
+            this.listEmail.push(this.newEmail);
+          });
+
+          // 6. Svuoto l'array
+          this.listaEmail = []
+          
+          .catch((error) => {
+            console.log(error);
+          });
+        }
+    }
   },
 
   mounted() {
-
+    
   }
 
 }).mount('#app')
