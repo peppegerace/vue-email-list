@@ -39,11 +39,7 @@ createApp({
           });
 
           // 6. Svuoto l'array
-          this.listaEmail = []
-          
-          .catch((error) => {
-            console.log(error);
-          });
+          this.listEmail = []
         }
     }
   },

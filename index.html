@@ -20,10 +20,15 @@
   
   <div id="app" class="container my-4">
 
-    <button class="btn btn-primary">Genera 10 mail random</button>
+    <!-- 5. al click del bottone faccio partire la funzione che mi genera dieci numeri random -->
+    <button class="btn btn-primary m-3" @click="generateRandomEmail">Genera 10 mail random</button>
 
     <ol>
-      <li></li>
+      <!-- tramite v-for stampo in pagina l'email generate randomicamente -->
+      <li
+        v-if="listEmail.length === 10"
+        v-for="email in listEmail"
+        :key="email"> {{ email }} </li>
     </ol>
     
 
